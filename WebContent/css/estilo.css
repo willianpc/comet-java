@@ -1,0 +1,26 @@
+body {
+	font-family: arial;
+	font-size: 12px;
+}
+
+#log {
+	padding:7px;
+	border:1px solid gray;
+	width:600px;
+	height: 300px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+
+	overflow-y: scroll;
+	word-wrap: break-word;
+}
+
+
+.msg {
+	width: 600px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	outline: none;
+}
