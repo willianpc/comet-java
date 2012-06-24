@@ -1,6 +1,7 @@
 package br.com.wpsystem.app;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -99,6 +100,14 @@ public final class CometTest extends HttpServlet {
 		 */
 		actx.addListener(new AsyncListener() {
 			public void onTimeout(AsyncEvent arg0) throws IOException {
+
+				HttpServletResponse res = (HttpServletResponse) arg0
+								.getAsyncContext().getResponse();
+				PrintWriter pw = res.getWriter();
+				pw.write("{}");
+				res.setStatus(HttpServletResponse.SC_OK);
+				res.setContentType("application/json");
+
 				queue.remove(arg0.getAsyncContext());
 			}
 

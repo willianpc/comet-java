@@ -1,11 +1,14 @@
 body {
 	font-family: arial;
 	font-size: 17px;
+	text-shadow: 1px 1px 0px white;
+	background-color: rgb(230, 230, 230);
 }
 
 #log {
+	background-color: rgb(240, 240, 240);
 	padding:7px;
-	border:1px solid gray;
+	border:0px solid gray;
 	width:600px;
 	height: 300px;
 	border-radius: 3px;
@@ -19,11 +22,11 @@ body {
 .msg {
 	font-family: arial;
 	font-size: 17px;
-
+	padding:7px;
 	width: 600px;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	outline: none;
-	border:1px solid gray;
+	border:0px solid gray;
 }
