@@ -11,13 +11,14 @@
 	<url>http://maven.apache.org</url>
 
 	<build>
+		<finalName>comet-java</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				
 				<configuration>
-					<outputDirectory>/home/chamb/apps/glassfish3/glassfish/domains/domain1/autodeploy</outputDirectory>
+					<!-- PUT YOUR WAR DIRECTORY HERE -->
+					<outputDirectory>/home/willian/apps/gf-3.1.2/glassfish3/glassfish/domains/domain1/autodeploy</outputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -39,6 +40,7 @@
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-servlet_3.0_spec</artifactId>
 			<version>1.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>

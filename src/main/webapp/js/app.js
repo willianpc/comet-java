@@ -68,5 +68,10 @@ function listenOnlineUsers(repeat) {
 
 $(document).ready(function() {
 	loadEvents();
-	listenOnlineUsers(true);
+	
+	setTimeout(function() {
+		listenOnlineUsers(true);
+	}, 1000);
+	
+	
 });

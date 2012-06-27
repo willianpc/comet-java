@@ -28,8 +28,7 @@ import javax.servlet.http.HttpSession;
  *         done you must user Servlet API 3.0
  */
 
-@WebServlet(urlPatterns = "/comet", displayName = "comet",
-				asyncSupported = true)
+@WebServlet(urlPatterns = "/comet", displayName = "comet", asyncSupported = true)
 public final class CometTest extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -62,13 +61,21 @@ public final class CometTest extends HttpServlet {
 		public void run() {
 			while (!Thread.currentThread().isInterrupted()) {
 
-				while (!queue.isEmpty()) {
-					try {
-						process(queue.peek());
-					} catch (Exception e) {
-						System.out.println("freaking error");
-						e.printStackTrace();
+				try {
+					//Thread.sleep(10);
+
+					while (!queue.isEmpty()) {
+						try {
+							Thread.sleep(10);
+							process(queue.peek());
+						} catch (Exception e) {
+							System.out.println("freaking error");
+							e.printStackTrace();
+						}
 					}
+
+				} catch (Exception e1) {
+					e1.printStackTrace();
 				}
 			}
 		}
@@ -85,7 +92,7 @@ public final class CometTest extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
-					throws ServletException, IOException {
+			throws ServletException, IOException {
 
 		/**
 		 * it turns the request to an ascyn request and sets its timeout to 40
@@ -102,7 +109,7 @@ public final class CometTest extends HttpServlet {
 			public void onTimeout(AsyncEvent arg0) throws IOException {
 
 				HttpServletResponse res = (HttpServletResponse) arg0
-								.getAsyncContext().getResponse();
+						.getAsyncContext().getResponse();
 				PrintWriter pw = res.getWriter();
 				pw.write("{}");
 				res.setStatus(HttpServletResponse.SC_OK);
@@ -125,7 +132,7 @@ public final class CometTest extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
-					throws ServletException, IOException {
+			throws ServletException, IOException {
 
 		/**
 		 * it gets a message from chat, gets username and sends a broadcast
